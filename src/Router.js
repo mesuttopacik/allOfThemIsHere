@@ -10,7 +10,12 @@ function Router() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Products" component={Products} />
+        <Stack.Screen 
+        name="Products" 
+        component={Products} 
+        options={{
+          title:'All Of Them Is Here'
+          }} />
         <Stack.Screen name="Detail" component={Detail} />
       </Stack.Navigator>
     </NavigationContainer>
