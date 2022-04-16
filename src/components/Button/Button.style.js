@@ -5,9 +5,9 @@ export default StyleSheet.create({
     button: {
         justifyContent:'center',
         alignItems: "center",
-        backgroundColor: colors.accent,
+        backgroundColor: '#219ebc',
         padding: 10,
-        margin: 2,
+        margin: 10,
         borderRadius: 10,
       },
       buttonText:{

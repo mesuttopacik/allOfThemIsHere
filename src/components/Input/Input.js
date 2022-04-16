@@ -1,11 +1,15 @@
-import React from "react";
-import { TextInput, StyleSheet } from "react-native";
-import styles from './Input.style'
-
+import React from 'react';
+import {TextInput, View, Text} from 'react-native';
+import styles from './Input.style';
+import Icon  from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const Input = (props) => {
-  return <TextInput {...props} style={{ ...styles.input, ...props.style }} />;
+  return (
+    <View  style={styles.inputContainer} >
+      <TextInput {...props} style={styles.input}/>
+      <Icon name={props.iconName} size={25} color='grey' />
+    </View>
+  );
 };
-
 
 export default Input;

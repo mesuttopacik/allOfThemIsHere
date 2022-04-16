@@ -1,11 +1,15 @@
 import { StyleSheet } from 'react-native'
-import colors from '../../../constants/Colors'
+// import {colors} from '../../../constants/GlobalStyles'
 
 export default StyleSheet.create({
-    input: {
-        // height: '100%',
-        borderColor: colors.accent,
-        borderWidth: 1,
-        // marginVertical: 10,
+    inputContainer: {
+        padding: 8,
+        margin: 10,
+        backgroundColor:'#e9ecef',
+        borderRadius:6,
+        flexDirection:'row',
       },
+      input:{
+        flex:1,
+      }
 })

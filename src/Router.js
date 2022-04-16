@@ -1,21 +1,23 @@
 import * as React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Products from './Screens/Products';
-import Detail from './Screens/Detail'
-
+import Detail from './Screens/Detail';
+import Login from './Screens/Auth/Login'
 const Stack = createNativeStackNavigator();
 
 function Router() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen 
-        name="Products" 
-        component={Products} 
-        options={{
-          title:'All Of Them Is Here'
-          }} />
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen
+          name="Products"
+          component={Products}
+          options={{
+            title: 'All Of Them Is Here',
+          }}
+        />
         <Stack.Screen name="Detail" component={Detail} />
       </Stack.Navigator>
     </NavigationContainer>
