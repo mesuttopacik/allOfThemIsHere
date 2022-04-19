@@ -7,21 +7,35 @@ import {
   KeyboardAvoidingView,
 } from 'react-native';
 import React from 'react';
-import styles from './Login.style';
+import styles from './SignIn.style';
 import Input from '../../../components/Input/Input';
 import Button from '../../../components/Button/Button';
 import {Formik} from 'formik';
-import authErrorMassageParser from '../../../utils/authErrorMassageParser';
 import auth from '@react-native-firebase/auth';
 import {showMessage} from 'react-native-flash-message';
+import authErrorMassageParser from '../../../utils/authErrorMassageParser';
 
-const initialFormValues = {username: '', password: ''};
+const initialFormValues = {
+  email: '',
+  password: '',
+  rePassword: '',
+};
 
-const Login = ({navigation}) => {
-  const handleLogin = async formValues => {
+const SignIn = ({navigation}) => {
+  const goBack = () => {
+    navigation.goBack();
+  };
+  const handleSignIn = async formValues => {
+    if (formValues.password !== formValues.rePassword) {
+      showMessage({
+        message: 'Şifreler uyuşmuyor..',
+        type: 'danger',
+      });
+      return;
+    }
     try {
-      await auth().signInWithEmailAndPassword(
-        formValues.username,
+      await auth().createUserWithEmailAndPassword(
+        formValues.email,
         formValues.password,
       );
     } catch (err) {
@@ -31,15 +45,12 @@ const Login = ({navigation}) => {
       });
     }
   };
-  const goToSingIn = () => {
-    navigation.navigate('SignIn');
-  };
   return (
     <KeyboardAvoidingView
       style={{flex: 1}}
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
-      <ScrollView style={styles.container}>
-        <SafeAreaView>
+      <ScrollView>
+        <SafeAreaView style={styles.container}>
           <View>
             <Text style={styles.header}>All Of Them Is Here</Text>
             <Image
@@ -47,40 +58,43 @@ const Login = ({navigation}) => {
               source={require('../../../assets/shoping.png')}
             />
           </View>
-          <Formik initialValues={initialFormValues} onSubmit={handleLogin}>
+          <Formik initialValues={initialFormValues} onSubmit={handleSignIn}>
             {({handleChange, handleSubmit, values}) => (
               <>
                 <Input
-                  placeholder="Kullanıcı adını giriniz"
-                  value={values.username}
-                  onChangeText={handleChange('username')}
-                  iconName="account"
+                  placeholder="e-posta adresinizi giriniz.."
+                  value={values.email}
+                  onChangeText={handleChange('email')}
+                  iconName="email"
                   textContentType="emailAddress"
                 />
                 <Input
-                  placeholder="Şifrenizi giriniz"
+                  placeholder="Şifrenizi giriniz.."
                   value={values.password}
                   onChangeText={handleChange('password')}
-                  iconName="key"
-                  secureTextEntry
+                  // iconName="key"
+                  // secureTextEntry
+                />
+                <Input
+                  placeholder="Şifrenizi tekrar giriniz.."
+                  value={values.rePassword}
+                  onChangeText={handleChange('rePassword')}
+                  // iconName="key"
+                  // secureTextEntry
                 />
                 <Button
                   onPress={handleSubmit}
-                  text="Giriş Yap"
-                  thema="primary"
-                />
-                <Button
-                  onPress={goToSingIn}
                   text="Kayıt Ol"
                   thema="secondary"
                 />
               </>
             )}
           </Formik>
+          <Button onPress={goBack} text="Geri" thema="primary" />
         </SafeAreaView>
       </ScrollView>
     </KeyboardAvoidingView>
   );
 };
 
-export default Login;
+export default SignIn;

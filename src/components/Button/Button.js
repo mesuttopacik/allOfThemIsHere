@@ -1,16 +1,14 @@
-import React from "react";
-import { View, TouchableOpacity, Text } from "react-native";
-import styles from './Button.style'
+import React from 'react';
+import {View, TouchableOpacity, Text} from 'react-native';
+import styles from './Button.style';
 
-const Button = (props) => {
+const Button = ({thema = 'primary', onPress, text}) => {
   return (
-    <View style = {styles.contanier}>
-      <TouchableOpacity {...props} style={{ ...styles.button, ...props.style }}>
-        <Text style = {styles.buttonText}>{props.children}</Text>
+      <TouchableOpacity onPress = {onPress} style={styles[thema].button}>
+        <Text style={styles[thema].buttonText}>{text}</Text>
       </TouchableOpacity>
-    </View>
+
   );
 };
-
 
 export default Button;

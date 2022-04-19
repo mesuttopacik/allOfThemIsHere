@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "279506167836",
+    "project_id": "allofthemishere",
+    "storage_bucket": "allofthemishere.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:279506167836:android:441378f9fd12e9373e57d9",
+        "android_client_info": {
+          "package_name": "com.allofthemhere"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "279506167836-jpfqu1oa42v8fggg8o18q9lct3vstuo7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3Vktu04oRGRRwmWYmQ6CjhobXG3FVR04"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "279506167836-jpfqu1oa42v8fggg8o18q9lct3vstuo7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
