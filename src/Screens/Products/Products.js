@@ -4,8 +4,8 @@ import Config from 'react-native-config';
 import axios from 'axios';
 import ProductCard from '../../components/ProductCard';
 import useFetch from '../../hooks/useFetch/useFetch';
-// import Loading from '../../components/Loading';
-// import Error from '../../components/Error/Error';
+import Loading from '../../components/Loading';
+import Error from '../../components/Error/Error';
 
 const Products = ({navigation}) => {
   const {loading, data, error} = useFetch(Config.API_URL);
@@ -25,6 +25,7 @@ navigation.navigate('Detail', {id})
   return (
     <FlatList
       data={data}
+      numColumns={2}
       renderItem={renderProduct}
       keyExtractor={item => item.id}
     />

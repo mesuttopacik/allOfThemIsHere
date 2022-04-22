@@ -47,10 +47,10 @@ const SignIn = ({navigation}) => {
   };
   return (
     <KeyboardAvoidingView
-      style={{flex: 1}}
+      style={styles.container}
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
       <ScrollView>
-        <SafeAreaView style={styles.container}>
+        <SafeAreaView>
           <View>
             <Text style={styles.header}>All Of Them Is Here</Text>
             <Image
@@ -66,21 +66,18 @@ const SignIn = ({navigation}) => {
                   value={values.email}
                   onChangeText={handleChange('email')}
                   iconName="email"
-                  textContentType="emailAddress"
-                />
+                  textContentType="emailAddress"                />
                 <Input
                   placeholder="Şifrenizi giriniz.."
                   value={values.password}
                   onChangeText={handleChange('password')}
-                  // iconName="key"
-                  // secureTextEntry
+                  secureTextEntry
                 />
                 <Input
                   placeholder="Şifrenizi tekrar giriniz.."
                   value={values.rePassword}
                   onChangeText={handleChange('rePassword')}
-                  // iconName="key"
-                  // secureTextEntry
+                  secureTextEntry
                 />
                 <Button
                   onPress={handleSubmit}

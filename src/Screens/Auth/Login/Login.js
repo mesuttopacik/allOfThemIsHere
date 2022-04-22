@@ -56,6 +56,7 @@ const Login = ({navigation}) => {
                   onChangeText={handleChange('username')}
                   iconName="account"
                   textContentType="emailAddress"
+                  autoCapitalize = {'none'}
                 />
                 <Input
                   placeholder="Şifrenizi giriniz"

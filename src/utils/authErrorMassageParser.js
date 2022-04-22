@@ -6,6 +6,8 @@ export default function (errorCode) {
       return 'Bu e-posta daha önce kullanılmış..';
     case 'auth/user-not-found':
       return 'Böyle bir kullanıcı bulunamadı..';
+      case 'auth/wrong-password':
+        return 'Hatalı parola..';
 
     default:
       return errorCode;
